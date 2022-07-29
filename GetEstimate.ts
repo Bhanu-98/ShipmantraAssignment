@@ -9,18 +9,25 @@ const headers = {
     'Access-Control-Allow-Headers' : 'Content-Type, Authorization, X-Requested-With'
   }
 
-const instance = axios.create({
-    baseURL: 'https://robotapitest-in.borzodelivery.com/api/business/1.1/',
+// const instance = axios.create({
+//     baseURL: 'https://robotapitest-in.borzodelivery.com/api/business/1.1/',
+//     headers: headers
+//   });
+
+  const instance = axios.create({
+    baseURL: 'http://localhost:3001',
     headers: headers
   });
+
+
+  
   
 
 const getEstimate = async(originAddress: string, destinationAddress: string) => {
    
     try {
         const result = instance.post(`calculate-order`, { "matter" : "test", "points" :[ { "address" : originAddress },{ "address" : destinationAddress }]});;
-        console.log(result);
-        
+        return (await result).data;
     } catch (error) {
         
     }

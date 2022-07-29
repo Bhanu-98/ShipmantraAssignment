@@ -29,10 +29,12 @@ button?.addEventListener("click", handleClick);
 function handleClick(_event: any){
   console.log(originAddress);
   console.log(destinationAddress);
-  getEstimate(originAddress, destinationAddress);
+ const result = getEstimate(originAddress, destinationAddress);
+ console.log(result);
   
 }
 
+initMap();
 
 function initMap(): void {
 
