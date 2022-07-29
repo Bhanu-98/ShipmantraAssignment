@@ -10,7 +10,8 @@ const headers = {
 
 const instance = axios.create({
     baseURL: 'https://robotapitest-in.borzodelivery.com/api/business/1.1/',
-    headers: headers  
+    headers: headers ,
+    proxy: 
   });
   
 
