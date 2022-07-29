@@ -16,7 +16,7 @@ const instance = axios.create({
 const getEstimate = async(originAddress: string, destinationAddress: string) => {
    
     try {
-        const result = instance.post(`calculate-orders`, { "matter" : "test", "points" :[ { "address" : originAddress },{ "address" : destinationAddress }]});;
+        const result = instance.post(`calculate-order`, { "matter" : "test", "points" :[ { "address" : originAddress },{ "address" : destinationAddress }]});;
         console.log(result);
         
     } catch (error) {
