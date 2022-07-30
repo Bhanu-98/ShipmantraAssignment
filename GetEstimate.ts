@@ -8,13 +8,10 @@ const headers = {
 
 
   const instance = axios.create({
-    baseURL: 'http://localhost:3003',
+    baseURL: 'https://borzoimages.azurewebsites.net',
     headers: headers
   });
 
-
-  
-  
 
 const getEstimate = async(originAddress: string, destinationAddress: string, matter: string) => {
    

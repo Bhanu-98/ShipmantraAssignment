@@ -30,6 +30,6 @@ app.get('/test', (req, res) => {
 
 
 
-  app.listen(3003, function (){
+  app.listen(80, function (){
     console.log("App running on 3003")
   });
