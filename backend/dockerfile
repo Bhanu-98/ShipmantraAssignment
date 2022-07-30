@@ -14,7 +14,7 @@ RUN npm install
 COPY ./ .
 
 #expose the port
-EXPOSE 3003
+EXPOSE 80
 
 # command to run when intantiate an image
 CMD ["node","index.js"]
