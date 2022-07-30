@@ -16,8 +16,38 @@
       <br>
       <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location"/>
       <br>
+      <input id="description" class="controls" type="text" placeholder="Enter description"/>
+      <br>
       <button id="getEstimate" class="estimate"  style="margin-top: 20px" name="Get Estimate">Get Estimate</button>
       <div id = "map"></div>
       <script src="./index.ts"></script>
+
+      <div id="estimate-table" style="margin-top: 10px; padding: 10px;">
+        <table>
+          <tbody>
+            <tr style="padding: 5px;">
+              <td style="border-left: 1px solid blue; border-top: 1px solid blue; border-bottom: 1px solid blue;">Request Status
+              </td>
+              <td id = "status" style="border: 1px solid blue;">NA</td>
+            </tr>
+            <tr style="padding-left: 5px;">
+              <td style="border-left: 1px solid blue; border-top: 1px solid blue; border-bottom: 1px solid blue;">Type</td>
+              <td id = "type" style="border: 1px solid blue;">NA</td>
+            </tr>
+            <tr style="padding-left: 5px;">
+              <td style="border-left: 1px solid blue; border-top: 1px solid blue; border-bottom: 1px solid blue;">Payment amount
+              </td>
+              <td id = "payment" style="border: 1px solid blue;">NA</td>
+            </tr>
+            <tr style="padding-left: 5px;">
+              <td style="border-left: 1px solid blue; border-top: 1px solid blue; border-bottom: 1px solid blue;">Delivery fee
+                amount</td>
+              <td id = "delivery" style="border: 1px solid blue;">NA</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      <!-- <div id = "estimate-details" style="margin-top: 10px;"> -->
+      <!-- </div> -->
   </body>
 </html>

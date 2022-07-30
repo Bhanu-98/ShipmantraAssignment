@@ -15,6 +15,7 @@ import { getEstimate } from "./GetEstimate";
 
 let originAddress: any;
 let destinationAddress: any;
+let matter: HTMLInputElement;
 
 
 const loader = new Loader({
@@ -24,13 +25,79 @@ const loader = new Loader({
 });
 
 const button = document.getElementById("getEstimate");
+const tableDiv = document.getElementById("estimate-details") as HTMLElement;
 button?.addEventListener("click", handleClick);
 
-function handleClick(_event: any){
+async function handleClick(_event: any){
+
   console.log(originAddress);
   console.log(destinationAddress);
- const result = getEstimate(originAddress, destinationAddress);
- console.log(result);
+  matter = document.getElementById('description') as HTMLInputElement;
+  const result = await getEstimate(originAddress, destinationAddress, matter.value);
+  console.log(result);
+
+  const status = document.getElementById('status') as HTMLElement;
+  const type =document.getElementById('type') as HTMLElement;
+  const payment =document.getElementById('payment') as HTMLElement;
+  const delivery =document.getElementById('delivery') as HTMLElement;
+
+  status.innerHTML = result.is_successful;
+  type.innerHTML = result.order.type;
+  payment.innerHTML = result.order.payment_amount;
+  delivery.innerHTML = result.order.delivery_fee_amount;
+
+  
+ 
+
+  // const tbl = document.createElement("table");
+  // const tblBody = document.createElement("tbody");
+  // const cell = document.createElement("td");
+  // const cell1 = document.createElement("td");
+
+  // const row = document.createElement("tr");
+  // const cellText = document.createTextNode(result.is_successful);
+  // const cellHeader = document.createTextNode("Request Status");
+  // cell.appendChild(cellHeader);
+  // cell1.appendChild(cellText);
+  // cell.style.borderLeft = '1px solid blue';
+  // cell.style.borderTop = '1px solid blue';
+  // cell.style.borderBottom = '1px solid blue';  
+  // cell1.style.border = '1px solid blue';
+  // row.appendChild(cell);
+  // row.appendChild(cell1);
+  // row.style.padding = '5px';
+  // tblBody.appendChild(row);
+
+ 
+  // for (const item of Object.entries(result.order)) {
+  //   if(item[0] === 'type' || item[0] === 'payment_amount' || item[0] === 'delivery_fee_amount'){
+  //     let cell = document.createElement("td");
+  //     let cell1 = document.createElement("td");
+  //     let row = document.createElement('tr');
+  //     let cellText = document.createTextNode(item[1] as string);
+
+  //     let header = item[0] as string;
+  //     header = header.replaceAll("_", " ")
+  //     header = header[0].toUpperCase() + header.substring(1).toLowerCase();
+  //     let cellHeader = document.createTextNode(header);
+  //     cell.style.borderLeft = '1px solid blue';
+  //     cell.style.borderTop = '1px solid blue';
+  //     cell.style.borderBottom = '1px solid blue';   
+  //     cell.appendChild(cellHeader);
+  //     cell1.style.border = '1px solid blue';
+  //     cell1.appendChild(cellText);
+  //     row.appendChild(cell);
+  //     row.appendChild(cell1);
+  //     row.style.paddingLeft = '5px';
+  //     tblBody.appendChild(row);
+  //   }
+  // }
+
+  // tbl.appendChild(tblBody);
+  // tableDiv.appendChild(tbl);
+  // tableDiv.style.padding = '10px';
+  // tableDiv.setAttribute("id", "estimate-table");
+  return result;
   
 }
 

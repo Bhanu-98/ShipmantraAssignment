@@ -2,20 +2,13 @@ import axios, { Axios } from "axios";
 
 
 const headers = {
-    'X-DV-Auth-Token': '89BB911AA612E767A22DD109D81A0CD5BFD8FB39',
     'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, OPTIONS',
-    'Access-Control-Allow-Headers' : 'Content-Type, Authorization, X-Requested-With'
   }
 
-// const instance = axios.create({
-//     baseURL: 'https://robotapitest-in.borzodelivery.com/api/business/1.1/',
-//     headers: headers
-//   });
 
   const instance = axios.create({
-    baseURL: 'http://localhost:3001',
+    baseURL: 'http://localhost:3003',
     headers: headers
   });
 
@@ -23,11 +16,16 @@ const headers = {
   
   
 
-const getEstimate = async(originAddress: string, destinationAddress: string) => {
+const getEstimate = async(originAddress: string, destinationAddress: string, matter: string) => {
    
     try {
-        const result = instance.post(`calculate-order`, { "matter" : "test", "points" :[ { "address" : originAddress },{ "address" : destinationAddress }]});;
-        return (await result).data;
+        var reqBody = {
+          "originAddress" : originAddress,
+          "destinationAddress" : destinationAddress,
+          "matter" : matter
+        }
+        const result = await instance.post(`calculateOrder`, reqBody);
+        return result.data;
     } catch (error) {
         
     }
