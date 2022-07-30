@@ -8,7 +8,7 @@ const headers = {
 
 
   const instance = axios.create({
-    baseURL: 'http://localhost:80',
+    baseURL: 'https://borzoimages.azurewebsites.net',
     headers: headers
   });
 
