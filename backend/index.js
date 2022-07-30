@@ -23,6 +23,10 @@ app.post('/calculateOrder', async(req, res) => {
         })
 });
 
+app.get('/test', (req, res) => {
+  res.send("Hello World, this app is working!");
+});
+
 
 
 
